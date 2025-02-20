@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Runs the workflow when changes are pushed to the main branch
+      - main  # Runs when changes are pushed to the main branch
 
 permissions:
   contents: read
@@ -16,15 +16,16 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Latest version
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4  # Updated version
+        uses: actions/configure-pages@v4  # Latest version
 
-      - name: Upload files
-        uses: actions/upload-pages-artifact@v1  # Use v1 (since v4 does not exist)
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4  # Fix: updated from v3 to v4
         with:
-          path: .  # Upload all files in the repo
+          name: github-pages
+          path: .  # Upload all files
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4  # Correct latest version
+        uses: actions/deploy-pages@v4  # Latest version
