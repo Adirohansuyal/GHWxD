@@ -19,12 +19,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4  # Updated from v3 to v4
+        uses: actions/configure-pages@v4  # Updated version
 
       - name: Upload files
-        uses: actions/upload-pages-artifact@v4  # Updated from v2 to v4
+        uses: actions/upload-pages-artifact@v1  # Use v1 (since v4 does not exist)
         with:
           path: .  # Upload all files in the repo
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4  # Updated from v2 to v4
+        uses: actions/deploy-pages@v4  # Correct latest version
